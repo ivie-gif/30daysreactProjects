@@ -1,19 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Numbers from './numberData'
-   
+import Skills from './skills'
 
+const skills = [
+  ['HTML', 10],
+  ['CSS', 7],
+  ['JavaScript', 9],
+  ['React', 8],
+]
 
 const App = () => {
-const numbers = [90, 23, 57, 95, 20, 58, 49, 28, 94]
-
   return (
     <div className='container'>
       <div>
-        <h1>Numbers List</h1>
-        <ul>
-          <Numbers numbers={numbers} />
-        </ul>
+        <h1>Skills Level</h1>
+        <Skills skills={skills} />
       </div>
     </div>
   )
