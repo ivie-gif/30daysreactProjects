@@ -1,7 +1,5 @@
 const NumberData = ({numbers}) => {
-    const list = (numbers.map((number) => {
-        return (<li>{number}</li>)
-    }))
+    const list = numbers.map((number) => <li>{number}</li>)
     return list
 }
 
