@@ -1,4 +1,4 @@
-export const mockNumber = [
+const MockNumber = [
 {
 index: '0',
 number: '1'
@@ -24,3 +24,5 @@ index: '4',
 number: '5'
 },
 ]
+
+export default MockNumber;
