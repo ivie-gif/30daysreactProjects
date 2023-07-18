@@ -4,12 +4,12 @@ import {ColorCombo} from './worldComp'
 
 
 const populations = [ 
-  {name: 'World', color: '#d79a55', number: '3,000,000'},
-  {name: 'Nigeria', color: '#d79a55', number: '1,000,000'},
-  {name: 'Ghana', color: '#d79a55', number: '100,000'},
-  {name: 'South Africa', color: '#d79a55', number: '320,000'},
-  {name: 'Guinea', color: '#d79a55', number: '5,000'},
-  {name: 'Zambia', color: '#d79a55', number: '300'}
+  {name: 'World', color: '#d79a55', width: '100%', number: '3,000,000'},
+  {name: 'Nigeria', color: '#d79a55',width: '70%', number: '1,000,000'},
+  {name: 'Ghana', color: '#d79a55',width: '40%', number: '100,000'},
+  {name: 'South Africa', color: '#d79a55',width: '40%', number: '320,000'},
+  {name: 'Guinea', color: '#d79a55',width: '10%', number: '5,000'},
+  {name: 'Zambia', color: '#d79a55',width: '10%', number: '300'}
 ]
 
 
