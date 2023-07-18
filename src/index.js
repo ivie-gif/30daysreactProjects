@@ -1,21 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Countries} from './countryComp'
+import {Colors} from './colorComponent'
 
-const countries = [
-  { name: 'Finland', city: 'Helsinki' },
-  { name: 'Sweden', city: 'Stockholm' },
-  { name: 'Denmark', city: 'Copenhagen' },
-  { name: 'Norway', city: 'Oslo' },
-  { name: 'Iceland', city: 'Reykjavík' },
+
+const colorCodes = [
+{number: '0', color: "#00AF43"},
+{number: '1', color: "#d2eb76"},
+{number: '2', color: "#d33030"},
+{number: '3', color: "#d33030"},
+{number: '4', color: "#00AF43"},
+{number: '5', color: "#d33030"},
+{number: '6', color: "#00AF43"},
+{number: '7', color: "#d33030"},
 ]
 
-// App component
 const App = () => (
   <div className='container'>
     <div>
-      <h1>Countries List</h1>
-      <Countries countries={countries} />
+      <h1 style={{fontWeight: 'bolder', textAlign: 'center'}}>30 days of React</h1>
+      <h2 style={{textAlign: 'center'}}>Number Generator</h2>
+    
+    {/* <div style={{display: 'flex'}}> */}
+
+    <Colors colorCodes={colorCodes} />
+    {/* </div> */}
     </div>
   </div>
 )
