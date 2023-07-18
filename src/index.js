@@ -1,24 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Skills from './skills'
+import {Countries} from './countryComp'
 
-const skills = [
-  ['HTML', 10],
-  ['CSS', 7],
-  ['JavaScript', 9],
-  ['React', 8],
+const countries = [
+  { name: 'Finland', city: 'Helsinki' },
+  { name: 'Sweden', city: 'Stockholm' },
+  { name: 'Denmark', city: 'Copenhagen' },
+  { name: 'Norway', city: 'Oslo' },
+  { name: 'Iceland', city: 'Reykjavík' },
 ]
 
-const App = () => {
-  return (
-    <div className='container'>
-      <div>
-        <h1>Skills Level</h1>
-        <Skills skills={skills} />
-      </div>
+// App component
+const App = () => (
+  <div className='container'>
+    <div>
+      <h1>Countries List</h1>
+      <Countries countries={countries} />
     </div>
-  )
-}
+  </div>
+)
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(<App />, rootElement)
