@@ -1,29 +1,40 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {ColorCombo} from './worldComp'
+// Pure JavaScript class and child
+// Imagine this what we import from React package
+// class Component {
+//   constructor(props) {}
+// }
 
+// // This how we make class based components by inheriting from the parent
+// class Child extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
+// }
 
-const populations = [ 
-  {name: 'World', color: '#d79a55', width: '100%', number: '3,000,000'},
-  {name: 'Nigeria', color: '#d79a55',width: '70%', number: '1,000,000'},
-  {name: 'Ghana', color: '#d79a55',width: '40%', number: '100,000'},
-  {name: 'South Africa', color: '#d79a55',width: '40%', number: '320,000'},
-  {name: 'Guinea', color: '#d79a55',width: '10%', number: '5,000'},
-  {name: 'Zambia', color: '#d79a55',width: '10%', number: '300'}
-]
+// Changing to a Class component
 
+import React from "react";
+import ReactDOM from "react-dom";
+import {TechList} from './techListComp'
 
-
-const App = () => (
-  <div className='container'>
-    <div>
-      <h1 style={{textAlign: 'center'}}>30 days of React</h1>
-      <h2 style={{textAlign: 'center'}}>World Population</h2>
-      <h6 style={{textAlign: 'center'}}>Ten most populated countries</h6>
-      <ColorCombo populations={populations} />
+class Main extends React.Component {
+constructor(props){
+  super(props)
+}
+render(){
+  return (
+  <main>
+    <div className='main-wrapper'>
+      <p>Prerequisite to get started react.js:</p>
+      <ul>
+        <TechList />
+      </ul>
     </div>
-  </div>
-)
+  </main>
+  )
+}
+}
 
-const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<Main />, rootElement);
