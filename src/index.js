@@ -1,73 +1,74 @@
-// Class function
-
-// import React from "react";
-// import ReactDOM from "react-dom";
-
+// // index.js
+// import React from 'react'
+// import ReactDOM from 'react-dom'
 // class App extends React.Component {
-//   // Setting our initial state
+//   // declaring state
 //   state = {
-//     count: 1,
-//   };
-
-//   addValue = () => {
-//     this.setState({count: this.state.count + 1})
-//   };
-
-//   minusValue = () => {
-//     this.setState({count: this.state.count - 1})
+//     image: 'https://th.bing.com/th?id=OIP.T7HyhZlj0rqF4YfdC-WzCwHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2',
+//   }
+//   changeAnimal = () => {
+//     let dogURL =
+//       'https://static.onecms.io/wp-content/uploads/sites/12/2015/04/dogs-pembroke-welsh-corgi-400x400.jpg'
+//     let catURL =
+//       'https://th.bing.com/th?id=OIP.uEiO9QWnzyv11o-hvortzQHaJ4&w=216&h=288&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2'
+//     let image = this.state.image === catURL ? dogURL : catURL
+//     this.setState({ image })
 //   }
 
 //   render() {
+//     // accessing the state value
+//     const count = this.state.count
 //     return (
-//       <div>
-//         <div className="App">
-//           <h1>{this.state.count}</h1>
+//       <div className='App'>
+//         <h1>30 Days Of React</h1>
+//         <div className='animal'>
+//           <img src={this.state.image} alt='animal' />
 //         </div>
 
-//         <div style={{ display: "flex"}}>
-//           <button onClick={this.addValue}>Increase Value</button>
-//           <button style={{marginLeft: '10px'}} onClick={this.minusValue}>Decrease Value</button>
-//         </div>
+//         <button onClick={this.changeAnimal} class='btn btn-add'>
+//           Change
+//         </button>
 //       </div>
-//     );
+//     )
 //   }
 // }
 
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<App />, rootElement);
+// Using class component
 
-// Function component
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
-const App = () => {
-  const [value, setValue] = useState(0);
+class App extends React.Component {
+  state = {
+    image:
+      "https://th.bing.com/th?id=OIP.T7HyhZlj0rqF4YfdC-WzCwHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+  };
 
-
-  const handleAdd = () => {
-    setValue(value + 1)
-  }
-
-  const handleMinus = () => {
-    setValue(value - 1)
-  }
-
-
-  return (
-    <div>
-      <div className="App">
-        <h1>{value}</h1>
+  render() {
+    return (
+      <div className="APP">
+        <h1>30 days of React</h1>
+        <h3>Changing images using state management</h3>
+        <img src={this.state.image} />
+        <div>
+          <button
+            onClick={() =>
+              this.setState({
+                image:
+                  this.state.image ==
+                  "https://static.onecms.io/wp-content/uploads/sites/12/2015/04/dogs-pembroke-welsh-corgi-400x400.jpg"
+                    ? "https://th.bing.com/th?id=OIP.uEiO9QWnzyv11o-hvortzQHaJ4&w=216&h=288&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+                    : "https://static.onecms.io/wp-content/uploads/sites/12/2015/04/dogs-pembroke-welsh-corgi-400x400.jpg",
+              })
+            }
+          >
+            Change Images
+          </button>
+        </div>
       </div>
-
-      <div style={{ display: "flex" }}>
-        <button onClick={handleAdd}>Increase Value</button>
-        <button style={{ marginLeft: "10px" }} onClick={handleMinus}>
-          Decrease Value
-        </button>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
