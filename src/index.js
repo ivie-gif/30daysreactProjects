@@ -1,114 +1,125 @@
 // // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+// import React from 'react'
+// import ReactDOM from 'react-dom'
 
-// class based component
-class Header extends React.Component {
-  render() {
-    const {
-      welcome,
-      title,
-      subtitle,
-      author: { firstName, lastName },
-      date,
-    } = this.props.data
+// // class based component
+// class Header extends React.Component {
+//   render() {
+//     const {
+//       welcome,
+//       title,
+//       subtitle,
+//       author: { firstName, lastName },
+//       date,
+//     } = this.props.data
 
-    return (
-      <header>
-        <div className='header-wrapper'>
-          <h1>{welcome}</h1>
-          <h2>{title}</h2>
-          <h3>{subtitle}</h3>
-          <p>
-            {firstName} {lastName}
-          </p>
-          <small>{date}</small>
-          <p>Select a country for your next holiday</p>
-        </div>
-      </header>
-    )
-  }
-}
+//     return (
+//       <header>
+//         <div className='header-wrapper'>
+//           <h1>{welcome}</h1>
+//           <h2>{title}</h2>
+//           <h3>{subtitle}</h3>
+//           <p>
+//             {firstName} {lastName}
+//           </p>
+//           <small>{date}</small>
+//           <p>Select a country for your next holiday</p>
+//         </div>
+//       </header>
+//     )
+//   }
+// }
 
-class App extends React.Component {
-  state = {
-    loggedIn: false,
-  }
+// class App extends React.Component {
+//   state = {
+//     loggedIn: false,
+//   }
 
-  render() {
-    const data = {
-      welcome: '30 Days Of React',
-      title: 'Getting Started React',
-      subtitle: 'JavaScript Library',
-      author: {
-        firstName: 'Asabeneh',
-        lastName: 'Yetayeh',
-      },
-      date: 'Oct 9, 2020',
-    }
+//   render() {
+//     const data = {
+//       welcome: '30 Days Of React',
+//       title: 'Getting Started React',
+//       subtitle: 'JavaScript Library',
+//       author: {
+//         firstName: 'Asabeneh',
+//         lastName: 'Yetayeh',
+//       },
+//       date: 'Oct 9, 2020',
+//     }
 
-    // conditional rendering using if and else statement
+//     // conditional rendering using if and else statement
 
-    let status
+//     let status
 
-    if (this.state.loggedIn) {
-      status = <h3>Welcome to 30 Days Of React</h3>
-    } else {
-      status = <h3>Please Login</h3>
-    }
+//     if (this.state.loggedIn) {
+//       status = <h3>Welcome to 30 Days Of React</h3>
+//     } else {
+//       status = <h3>Please Login</h3>
+//     }
 
-    return (
-      <div className='app'>
-        <Header data={data} />
-        {status}
-      </div>
-    )
-  }
-}
+//     return (
+//       <div className='app'>
+//         <Header data={data} />
+//         {status}
+//       </div>
+//     )
+//   }
+// }
 
-const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+// const rootElement = document.getElementById('root')
+// ReactDOM.render(<App />, rootElement)
 
 // // index.js
-// import React from "react";
-// import ReactDOM from "react-dom";
+import React, {useState} from "react";
+import ReactDOM from "react-dom";
 
-// const Header = ({menu}) => {
-//   return (
-//     <header>
-//       <div className="header-wrapper">
-//         <h1>{menu.welcome}</h1>
-//         <h2>{menu.title}</h2>
-//         <h3>{menu.subtitle}</h3>
-//         <p>
-//           {menu.author.firstName} {menu.author.lastName}
-//         </p>
-//         <small>{menu.date}</small>
-//         <p>Select a country for your next holiday</p>
-//       </div>
-//     </header>
-//   );
-// };
+const Header = ({menu}) => {
+  return (
+    <header>
+      <div className="header-wrapper">
+        <h1>{menu.welcome}</h1>
+        <h2>{menu.title}</h2>
+        <h3>{menu.subtitle}</h3>
+        <p>
+          {menu.author.firstName} {menu.author.lastName}
+        </p>
+        <small>{menu.date}</small>
+        <p>Select a country for your next holiday</p>
+      </div>
+    </header>
+  );
+};
 
-// const App = (
-//   {menu = {
-//     welcome: "30 Days Of React",
-//     title: "Getting Started React",
-//     subtitle: "JavaScript Library",
-//     author: {
-//       firstName: "Asabeneh",
-//       lastName: "Yetayeh",
-//     },
-//     date: "Oct 9, 2020",
-//   }
-// }) => {
-//   return (
-//     <div className="app">
-//       <Header menu={menu} />
-//       {/* {status} */}
-//     </div>
-//   );
-// };
+const App = (
+  {menu = {
+    welcome: "30 Days Of React",
+    title: "Getting Started React",
+    subtitle: "JavaScript Library",
+    author: {
+      firstName: "Asabeneh",
+      lastName: "Yetayeh",
+    },
+    date: "Oct 9, 2020",
+  }
+}) => {
 
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<App />, rootElement);
+let login = false;
+
+const handleStatus = () => {
+  if (login){
+    return(<h3>Welcome to 30 Days Of React</h3>)
+  }else{
+    return(<h3>Please Login</h3>)
+  }
+}
+
+  return (
+    <div className="app">
+      <Header menu={menu} />
+    <h2>{handleStatus()}</h2>
+    </div>
+  );
+};
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
