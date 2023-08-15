@@ -67,7 +67,9 @@ const App = () => {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center', paddingTop: '80px'}}>Countries and Flags</h1>
+      <h1 style={{ textAlign: "center", paddingTop: "80px" }}>
+        Countries and Flags
+      </h1>
       <div
         style={{
           marginLeft: "30%",
@@ -90,6 +92,7 @@ const App = () => {
           color: "white",
           fontSize: "16px",
           cursor: "pointer",
+          fontWeight: "bold",
         }}
       >
         Change Country
