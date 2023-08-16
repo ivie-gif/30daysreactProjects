@@ -1,4 +1,3 @@
-// // index.js
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Button } from "./buttonComp";
@@ -20,8 +19,8 @@ const Header = ({ menu }) => {
   );
 };
 
-const App = ({
-  menu = {
+const App = () => {
+  const menu = {
     welcome: "30 Days Of React",
     title: "Getting Started React",
     subtitle: "JavaScript Library",
@@ -30,46 +29,37 @@ const App = ({
       lastName: "Yetayeh",
     },
     date: "Oct 9, 2020",
-  },
-}) => {
-  const [btnState, setBtnState] = useState(false);
-  let status;
-  let text;
+  };
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
 
-  const handleBtnStatus = () => {
-    setBtnState(!btnState)
+  const handleStatus = () => {
+    setUserLoggedIn(!userLoggedIn);
   };
 
-  console.log(btnState, "88uweyuw");
-
-    if (btnState) {
-      status = <h3>Welcome to 30 Days Of React</h3>
-      text= 'Logout'
-    } else {
-      status = <h3>Please Login</h3>
-      text = 'Login'
-    }
-
+  let status = userLoggedIn ? (
+    <h1>Welcome to 30 Days of JavaScript</h1>
+  ) : (
+    <h1>Please Login</h1>
+  );
 
   return (
     <div className="app">
       <Header menu={menu} />
-      <h2>{status}</h2>
+      {status}
       <Button
-      onClick={handleBtnStatus}
-      text= {text}
+        onClick={handleStatus}
+        text={userLoggedIn ? "Logout" : "Login"}
         style={{
           padding: "15px 10px",
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: "white",
-          backgroundColor: "#61dbfb",
           border: "none",
           borderRadius: "5px",
-          cursor: 'pointer'
-        }}    
+          color: "white",
+          backgroundColor: "#61dbfb",
+          fontWeight: "bold",
+          fontSize: "16px",
+          cursor: "pointer",
+        }}
       />
-
     </div>
   );
 };
