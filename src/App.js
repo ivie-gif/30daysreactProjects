@@ -100,100 +100,106 @@ export const App = () => {
   const [emailAddress, setEmailAddress] = useState("");
 
   const handleFirstname = (e) => {
+    e.preventDefault();
     const value = e.target.value;
     setFirstName(value);
   };
 
   const handleMiddlename = (e) => {
-    const value = e.target.value
-    setMiddleName(value)
-}
+    const value = e.target.value;
+    setMiddleName(value);
+  };
 
-const handleLastname = (e) => {
-    const value = e.target.value
-    setLastName(value)
-}
+  const handleLastname = (e) => {
+    const value = e.target.value;
+    setLastName(value);
+  };
 
-const handleEmailAddress = (e) => {
-    const value = e.target.value
-    setEmailAddress(value)
-}
+  const handleEmailAddress = (e) => {
+    const value = e.target.value;
+    setEmailAddress(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
 
   return (
     <div>
       <h1>All Student Details</h1>
-
-      <label htmlFor="label" style={{ fontWeight: "bold" }}>
-        {" "}
-        First Name:{" "}
-      </label>
-      <br />
-      <input
-        type="text"
-        name="first name"
-        placeholder="Enter First name"
-        style={{ marginTop: "7px", marginBottom: "7px" }}
-        value={firstName}
-        onChange={handleFirstname}
-      />
-      <br />
-      <label htmlFor="label" style={{ fontWeight: "bold" }}>
-        {" "}
-        Middle Name:{" "}
-      </label>
-      <br />
-      <input
-        type="text"
-        name="middle name"
-        placeholder="Enter Middle name"
-        style={{ marginTop: "7px", marginBottom: "7px" }}
-        value={middleName}
-        onChange={handleMiddlename}
-      />
-      <br />
-      <label htmlFor="label" style={{ fontWeight: "bold" }}>
-        {" "}
-        Last Name:{" "}
-      </label>
-      <br />
-      <input
-        type="text"
-        name="last name"
-        placeholder="Enter Last name"
-        style={{ marginTop: "7px", marginBottom: "7px" }}
-        value={lastName}
-        onChange={handleLastname}
-      />
-      <br />
-      <label htmlFor="label" style={{ fontWeight: "bold" }}>
-        {" "}
-        Email Address:{" "}
-      </label>
-      <br />
-      <input
-        type="email"
-        name="email address"
-        placeholder="Enter Email Address"
-        style={{ marginTop: "7px", marginBottom: "7px" }}
-        value={emailAddress}
-        onChange={handleEmailAddress}
-      />
-      <br />
-      <button
-      type="submit"
-        style={{
-          border: "none",
-          fontWeight: "bold",
-          color: "white",
-          backgroundColor: "#61dbfb",
-          padding: "15px 63px",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
-        Submit
-      </button>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="label" style={{ fontWeight: "bold" }}>
+          {" "}
+          First Name:{" "}
+        </label>
+        <br />
+        <input
+          type="text"
+          name="first name"
+          placeholder="Enter First name"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+          value={firstName}
+          onChange={handleFirstname}
+        />
+        <br />
+        <label htmlFor="label" style={{ fontWeight: "bold" }}>
+          {" "}
+          Middle Name:{" "}
+        </label>
+        <br />
+        <input
+          type="text"
+          name="middle name"
+          placeholder="Enter Middle name"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+          value={middleName}
+          onChange={handleMiddlename}
+        />
+        <br />
+        <label htmlFor="label" style={{ fontWeight: "bold" }}>
+          {" "}
+          Last Name:{" "}
+        </label>
+        <br />
+        <input
+          type="text"
+          name="last name"
+          placeholder="Enter Last name"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+          value={lastName}
+          onChange={handleLastname}
+        />
+        <br />
+        <label htmlFor="label" style={{ fontWeight: "bold" }}>
+          {" "}
+          Email Address:{" "}
+        </label>
+        <br />
+        <input
+          type="email"
+          name="email address"
+          placeholder="Enter Email Address"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+          value={emailAddress}
+          onChange={handleEmailAddress}
+        />
+        <br />
+        <button
+          type="submit"
+          style={{
+            border: "none",
+            fontWeight: "bold",
+            color: "white",
+            backgroundColor: "#61dbfb",
+            padding: "15px 63px",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
