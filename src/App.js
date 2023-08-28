@@ -1,97 +1,31 @@
-// import React, { Component } from 'react'
-// import ReactDOM from 'react-dom'
-// export class App extends Component {
-//   // declaring initial state
-//   state = {
-//     firstName: '',
-//     lastName: '',
-//     country: '',
-//     title: '',
-//   }
-//   handleChange = (e) => {
-//     /*
-//     we can get the name and value like this: e.target.name, e.target.value
-//     but we can also destructure  name and value from e.target
-//     const name = e.target.name
-//     const value = e.target.value
-//     */
-//     const { name, value } = e.target
-//     // [variablename] to use a variable name as a key in an object
-//     // name refers to the name attribute of the input elements
-//     this.setState({ [name]: value })
-//   }
-//   handleSubmit = (e) => {
-//     /*
-//      e.preventDefault()
-//       stops the default behavior of form element
-//      specifically refreshing of page
-//      */
-//     e.preventDefault()
-
-//     /*
-//      the is the place where we connect backend api
-//      to send the data to the database
-//      */
-
-//     // console.log(this.state)
-//   }
-
-//   render() {
-//     // accessing the state value by destrutcturing the state
-//     const { firstName, lastName, title, country } = this.state
-//     return (
-//       <div className='App'>
-//         <h3>Add Student</h3>
-//         <form onSubmit={this.handleSubmit}>
-//           <div>
-//             <input
-//               type='text'
-//               name='firstName'
-//               placeholder='First Name'
-//               value={firstName}
-//               onChange={this.handleChange}
-//             />
-//           </div>
-//           <div>
-//             <input
-//               type='text'
-//               name='lastName'
-//               placeholder='Last Name'
-//               value={lastName}
-//               onChange={this.handleChange}
-//             />
-//           </div>
-//           <div>
-//             <input
-//               type='text'
-//               name='country'
-//               placeholder='Country'
-//               value={country}
-//               onChange={this.handleChange}
-//             />
-//           </div>
-//           <div>
-//             <input
-//               type='text'
-//               name='title'
-//               placeholder='Title'
-//               value={title}
-//               onChange={this.handleChange}
-//             />
-//           </div>
-
-//           <button class='btn btn-success'>Submit</button>
-//         </form>
-//       </div>
-//     )
-//   }
-// }
-
-// const rootElement = document.getElementById('root')
-// ReactDOM.render(<App />, rootElement)
-
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+
+const options = [
+  {
+    value: "",
+    label: "-- Select Country--",
+  },
+  {
+    value: "Finland",
+    label: "Finland",
+  },
+  {
+    value: "Sweden",
+    label: "Sweden",
+  },
+  {
+    value: "Norway",
+    label: "Norway",
+  },
+  {
+    value: "Denmark",
+    label: "Denmark",
+  },
+];
+
+const optionsValues = options.map(({ value, label }) => {
+  return <option value={value}> {label} </option>;
+});
 
 export const App = () => {
   const [firstName, setFirstName] = useState("");
@@ -123,7 +57,6 @@ export const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
 
   return (
     <div>
@@ -184,6 +117,147 @@ export const App = () => {
           value={emailAddress}
           onChange={handleEmailAddress}
         />
+        <br />
+        <label htmlFor="Phone" style={{ fontWeight: "bold" }}>
+          {" "}
+          Phone Number:{" "}
+        </label>
+        <br />
+        <input
+          type="tel"
+          name="tel num"
+          placeholder="Enter Phone Number"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+        />
+        <br />
+        <label htmlFor="DateOfBirth" style={{ fontWeight: "bold" }}>
+          {" "}
+          Date of Birth:{" "}
+        </label>
+        <br />
+        <input
+          type="date"
+          name="DOB"
+          placeholder="Enter D-O-B"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+        />
+        <br />
+        <label htmlFor="FavCol" style={{ fontWeight: "bold" }}>
+          {" "}
+          Favourite Color:{" "}
+        </label>
+        <br />
+        <input
+          type="color"
+          id="color"
+          name="color"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+        />
+        <br />
+        <label htmlFor="Weight" style={{ fontWeight: "bold" }}>
+          {" "}
+          Weight:{" "}
+        </label>
+        <br />
+        <input
+          type="number"
+          id="weight"
+          name="weight"
+          placeholder="Enter Weight in Kg"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+        />
+        <br />
+        <label htmlFor="Country" style={{ fontWeight: "bold" }}>
+          {" "}
+          Country:{" "}
+        </label>
+        <br />
+        <select style={{ marginTop: "7px", marginBottom: "7px" }}>
+          {optionsValues}
+        </select>
+        <br />
+        <label htmlFor="Gender" style={{ fontWeight: "bold" }}>
+          {" "}
+          Gender
+        </label>
+        <br />
+        <input
+          type="radio"
+          id="female"
+          name="gender"
+          value="Female"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+
+          // checked={gender === 'Female'}
+        />
+        <label htmlFor="female">Female</label>
+        <br />
+        <input
+          type="radio"
+          id="male"
+          name="gender"
+          value="Male"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+
+          // checked={gender === 'Female'}
+        />
+        <label htmlFor="male">Male</label>
+        <br />
+        <input
+          type="radio"
+          id="other"
+          name="gender"
+          value="Other"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+
+          // checked={gender === 'Female'}
+        />
+        <label htmlFor="male">Other</label>
+        <br />
+        <label htmlFor="selectSkills" style={{ fontWeight: "bold" }}>
+          Select your skills
+        </label>
+        <br />
+        <input
+          type="checkbox"
+          id="html"
+          name="html"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+        />
+        <label htmlFor="html">HTML</label>
+        <br />
+        <input
+          type="checkbox"
+          id="css"
+          name="css"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+        />
+        <label htmlFor="css">CSS</label>
+        <br />
+        <input
+          type="checkbox"
+          id="javascript"
+          name="javascript"
+          style={{ marginTop: "7px", marginBottom: "7px" }}
+        />
+        <label htmlFor="javascript">JavaScript</label>
+        <br />
+        <label htmlFor="bio" style={{ fontWeight: "bold" }}>
+          Bio
+        </label>{" "}
+        <br />
+        <textarea
+          id="bio"
+          name="bio"
+          //   value={bio}
+          //   onChange={this.handleChange}
+          cols="120"
+          rows="10"
+          placeholder="Write about yourself ..."
+        />
+        <div>
+          <input type="file" name="file" />
+        </div>
         <br />
         <button
           type="submit"
